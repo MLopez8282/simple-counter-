@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-class Counter extends React.Component {
+/*class Counter extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleOne = this.handleOne.bind(this);
@@ -44,6 +44,28 @@ class Counter extends React.Component {
 			</div>
 		);
 	}
-}
+}*/
+const Counter = () => {
+	const [count, setCount] = useState(0);
+
+	const handleOne = () => {
+		setCount(count + 1);
+	};
+	const handleMinusOne = () => {
+		setCount(count - 1);
+	};
+
+	const handleReset = () => {
+		setCount(0);
+	};
+	return (
+		<div>
+			<h1>Count: {count}</h1>
+			<button onClick={handleOne}>+1</button>
+			<button onClick={handleMinusOne}>-1</button>
+			<button onClick={handleReset}>reset</button>
+		</div>
+	);
+};
 
 ReactDOM.render(<Counter />, document.getElementById("app"));
